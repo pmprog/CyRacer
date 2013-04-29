@@ -143,6 +143,13 @@ void DebugStage::Update()
 		crashed = 1;
 		crashSpeed = speed;
 		crashTick = 0;
+
+#ifdef PANDORA
+		char c4a_cmd[255];
+		sprintf( (char*)&c4a_cmd, "./sc so push cyracer pandora %i", score );
+		system( (char*)&c4a_cmd );
+#endif
+
 		return;
 	}
 
